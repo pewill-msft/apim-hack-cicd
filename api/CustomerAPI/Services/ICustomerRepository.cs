@@ -14,6 +14,10 @@ namespace CustomerAPI.Services
 
         Task<Customer> GetCustomer(Guid customerId);
 
+        
+        Task<Customer> GetCustomerByEmail(string email);
+
+
         void CreateCustomer(Customer customer);
 
         void UpdateCustomer(Customer customer);
