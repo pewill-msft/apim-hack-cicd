@@ -10,3 +10,6 @@ https://ca-customerapi.proudhill-9c79432d.northeurope.azurecontainerapps.io/api/
 https://apim-petwil.azure-api.net/ch5/api/customers
 Ocp-Apim-Subscription-Key: 11872d97fcca483f9a2d9b1e0f037acd
 
+###
+https://apim-petwil.azure-api.net/ch5/api/customers/getcustomerbyemail/user4@domain.com
+Ocp-Apim-Subscription-Key: 11872d97fcca483f9a2d9b1e0f037acd
