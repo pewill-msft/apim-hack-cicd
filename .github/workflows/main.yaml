@@ -1,8 +1,8 @@
-on: [workflow_dispatch]
-  # push:                             # Workflow will start when code is pushed into this repo
-  #   paths:
-  #     - 'api/CustomerAPI/**'          # Only changes in and below this path will trigger this workflow
-  #     - '.github/workflows/*'
+on: 
+  push:                             # Workflow will start when code is pushed into this repo
+    paths:
+      - 'api/CustomerAPI/**'          # Only changes in and below this path will trigger this workflow
+      - '.github/workflows/*'
 
 name: Customer Api                  # Name of the workflow
 jobs:
@@ -26,5 +26,12 @@ jobs:
         inlineScript: |
           az acr build --registry acr${{ env.name }}.azurecr.io --image customerapi:${{ github.run_number }} . -f api/CustomerAPI/Dockerfile 
 
-
+    - name: Deploy API to Azure Container Apps 
+      uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}   # Subscription Id
+        resourceGroupName: rg-${{ env.name }}               # Resource group
+        template: ${{ env.directory }}/Bicep/main.bicep     # File to deploy
+        parameters: dockerimagetag=${{ github.run_number }} name=${{ env.name }}  # Parameters
+        failOnStdErr: false
 
