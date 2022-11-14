@@ -1,2 +1,6 @@
 https://apim-petwil.azure-api.net/ch2/sessions
 Ocp-Apim-Subscription-Key: 11872d97fcca483f9a2d9b1e0f037acd
+
+###
+
+https://ca-customerapi.[YOUR GENERATED URL].northeurope.azurecontainerapps.io/api/customers
