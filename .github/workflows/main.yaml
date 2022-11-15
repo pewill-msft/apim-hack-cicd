@@ -1,16 +1,21 @@
-on: 
-  push:                             # Workflow will start when code is pushed into this repo
-    paths:
-      - 'api/CustomerAPI/**'          # Only changes in and below this path will trigger this workflow
-      - '.github/workflows/*'
 
-name: Customer Api                  # Name of the workflow
+name: Customer Api
+on:
+    workflow_call:
+      inputs:
+       environment:
+        type: string
+        description: 'Name of the environment'
+       name:
+        type: string
+        description: 'Suffix to use'                  # Name of the workflow
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest          # Base image to be used for the GitHub runner
+    runs-on: ubuntu-latest
+    environment: ${{inputs.environment}}          # Base image to be used for the GitHub runner
     env:                            # List of environment variables
       directory: api/CustomerAPI    # the path of the Customer API 
-      name: petwil         # Your POSTFIX
+      name: ${{ inputs.name }}        # Your POSTFIX
     steps:
     - uses: actions/checkout@main       # Checkout the code to the GitHub runner 
 
