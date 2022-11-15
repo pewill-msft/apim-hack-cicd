@@ -1,14 +1,14 @@
 
 name: Customer Api
 on:
-    workflow_call:
-      inputs:
-       environment:
-        type: string
-        description: 'Name of the environment'
-       name:
-        type: string
-        description: 'Suffix to use'                  # Name of the workflow
+  workflow_call:
+    inputs:
+     environment:
+      type: string
+      description: 'Name of the environment'
+     name:
+      type: string
+      description: 'Suffix to use'                  # Name of the workflow
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
