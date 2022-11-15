@@ -9,7 +9,7 @@ on:
 jobs:
    deploy_to_dev:
     name: 'Dev deployment'
-    uses: ./.github/workflows/main.yml         #Call the existing workflow 
+    uses: ./.github/workflows/main.yaml         #Call the existing workflow 
     secrets: inherit
     with:
       name: petwilprod
