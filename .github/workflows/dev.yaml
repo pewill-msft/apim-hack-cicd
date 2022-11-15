@@ -12,5 +12,5 @@ jobs:
     uses: ./.github/workflows/main.yaml         #Call the existing workflow 
     secrets: inherit
     with:
-      name: petwilprod
+      name: petwil
       environment: ''   
