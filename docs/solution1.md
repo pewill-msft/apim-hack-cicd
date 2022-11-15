@@ -3,7 +3,11 @@
 ## Solution steps
 
 To setup the environment you will use Azure CLI from VS Code.
-Either use a Service Principal or a user that has Owner rights on the subscription. The owner RBAC is required because you will create a User Assigned Managed Identity and apply role assignments to the identity. 
+Either use a Service Principal or a user that has Owner rights on the subscription. The owner RBAC is required because you will create a User Assigned Managed Identity and apply role assignments to the identity.
+
+> **Note**
+> You may run the deployment steps as a user with Owner rights but a Service Principal is still required when configuring the GitHub Actions.
+> 
 
 
 ### Login to Azure 
@@ -139,3 +143,4 @@ The result should look like this.
 * [Challenge 4: Create a CI/CD GitHub Action and deploy to Container Apps](challenge4.md)
 * [Challenge 5: Use the CI/CD GitHub Action to deploy changes to APIM](challenge5.md)
 * [Challenge 6: Add a policy using Bicep](challenge6.md)
+* [Challenge 7: Managing Development/Production environments.](challenge7.md)

@@ -19,7 +19,7 @@ param name string
 Use the **existing** keyword in the end of the reference declaration to reference the APIm instance. 
 
 
-```bash
+```bicep
 resource apim 'Microsoft.ApiManagement/service@2021-08-01' existing = {
   name: 'apim-${name}'
 }
@@ -27,7 +27,7 @@ resource apim 'Microsoft.ApiManagement/service@2021-08-01' existing = {
 
 Create the Starwars API using Bicep
 
-```bash
+```bicep
 resource swapi 'Microsoft.ApiManagement/service/apis@2021-08-01' = {
   parent: apim
   name: 'swapi'
@@ -46,7 +46,7 @@ resource swapi 'Microsoft.ApiManagement/service/apis@2021-08-01' = {
 
 Create an APIM subscription and connect it to the Starwars API. 
 
-```bash
+```bicep
 resource subscription 'Microsoft.ApiManagement/service/subscriptions@2021-12-01-preview' = {
   name: 'swapi-sub'
   parent: apim
@@ -105,3 +105,4 @@ Scroll down to the backend part of the trace logs and validate that the subscrip
 * [Challenge 4: Create a CI/CD GitHub Action and deploy to Container Apps](challenge4.md)
 * [Challenge 5: Use the CI/CD GitHub Action to deploy changes to APIM](challenge5.md)
 * [Challenge 6: Add a policy using Bicep](challenge6.md)
+* [Challenge 7: Managing Development/Production environments.](challenge7.md)

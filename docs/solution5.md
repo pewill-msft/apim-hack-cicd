@@ -35,14 +35,14 @@ This adds a parameter (apidefinitionurl) to the Bicep deployment, it's the url t
 
 The last step is to update customerapi.bicep so it imports the Customer API to APIM. Add this code as the last part to api/CustomerAPI/Bicep/customerapi.bicep  
 
-```yaml
+```bicep
 resource api 'Microsoft.ApiManagement/service/apis@2021-08-01' = {
-  parent: apim                  # Uses the reference to APIM
+  parent: apim                  // Uses the reference to APIM
   name: 'customerapi'
   properties:{
-    serviceUrl: 'https://${ca_customerapi.properties.configuration.ingress.fqdn}' # gets the url from Container Apps
+    serviceUrl: 'https://${ca_customerapi.properties.configuration.ingress.fqdn}' // gets the url from Container Apps
     format: 'openapi+json-link'
-    value: apidefinitionurl     # Uses the input parameter from the GitHub workflow. 
+    value: apidefinitionurl     // Uses the input parameter from the GitHub workflow. 
     displayName: 'Customer API'
     path: 'ch5'
     protocols:[
@@ -71,12 +71,6 @@ There are three files that needs to be modified:
 * api/CustomerAPI/Services/CustomerRepository.cs
 * api/CustomerAPI/Controllers/CustomerController.cs
 
-On line 23 in Services/ICustomerRepository.cs add a new interface method. 
-```csharp
-
-Task<Customer> GetCustomerByEmail(string email);
-
-```
 
 On line 23 in api/CustomerAPI/Services/ICustomerRepository.cs add the following code.
 ```csharp
@@ -155,3 +149,4 @@ For the complete files see:
 * [Challenge 4: Create a CI/CD GitHub Action and deploy to Container Apps](challenge4.md)
 * [Challenge 5: Use the CI/CD GitHub Action to deploy changes to APIM](challenge5.md)
 * [Challenge 6: Add a policy using Bicep](challenge6.md)
+* [Challenge 7: Managing Development/Production environments.](challenge7.md)
